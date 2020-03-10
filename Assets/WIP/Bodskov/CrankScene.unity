@@ -334,6 +334,7 @@ MonoBehaviour:
   crankAnchor: {fileID: 1931403859}
   crankHandle: {fileID: 654229833}
   speed: 500
+  fram_limit: 200
 --- !u!4 &1072699019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b4a2f796bde295d42b427f83f43292ba,
