@@ -5,15 +5,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
     /// <summary>
     /// Reference to active <typeparamref name="GameManager"/> instance.
     /// </summary>
-    public static GameManager Instance
-    {
-        get
-        { return _instance; }
-    }
+    public static GameManager Instance { get; private set; }
 
     [Header("Breakdown Settings")]
     [Tooltip("Minimum time until breakdown.")]
@@ -62,13 +57,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void SetupGameManagerInstance()
     {
-        if (_instance != null && _instance != this)
+        if (Instance != null && Instance != this)
         {
             this.enabled = false;
         }
         else
         {
-            _instance = this;
+            Instance = this;
         }
     }
 
@@ -81,6 +76,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetNextBreakdown(); //TODO: Call at some other time?
+        EventHandler.current.OnEngineStart += RestartCar;
     }
 
     // Update is called once per frame
@@ -130,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
         _carBrokenDown = true;
         _carRunning = false;
-        throw new NotImplementedException();
+        EventHandler.current.EngineDeath();
     }
 
     /// <summary>
@@ -138,9 +134,15 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RestartCar()
     {
+        //EventHandler.current.EngineStart();
         //TODO: make car run again
         _carRunning = true;
         _carBrokenDown = false;
         SetNextBreakdown();
+    }
+
+    private void OnDestroy()
+    {
+        EventHandler.current.OnEngineStart -= RestartCar;
     }
 }

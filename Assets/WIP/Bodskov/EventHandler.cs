@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EventHandler : MonoBehaviour
 {
-    public static EventHandler current;
+    public static EventHandler current; //singleton reference
 
     private void Awake()
     {
