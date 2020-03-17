@@ -9,7 +9,7 @@ public class FirstPersonLook : MonoBehaviour
     public float yAxisRotRange = 90f;
 
     public Camera playerCam;
-    private float rotationY = 1f;
+    private float rotationX = 1f;
 
     // public Vector2 mouseSmoothing = new Vector2(2, 2); //TODO: Try to apply smoothing?
     public float mouseYSensitivity = 1f;
@@ -40,12 +40,18 @@ public class FirstPersonLook : MonoBehaviour
         {
             // playerCam.transform.Rotate(invertedY ? mouseInput.y : -mouseInput.y, 0, 0); //NOTE: Works, but is unclamped
 
-            rotationY += mouseInput.y * mouseYSensitivity;
-            rotationY = Mathf.Clamp(rotationY, -yAxisRotRange, yAxisRotRange);
+            rotationX += mouseInput.y * mouseYSensitivity;
+            rotationX = Mathf.Clamp(rotationX, -yAxisRotRange, yAxisRotRange);
 
-            playerCam.transform.localEulerAngles = new Vector3(-rotationY, playerCam.transform.localEulerAngles.y, playerCam.transform.localEulerAngles.z);
+            playerCam.transform.localEulerAngles = new Vector3(-rotationX, playerCam.transform.localEulerAngles.y, playerCam.transform.localEulerAngles.z);
         }
 
         transform.Rotate(0, mouseInput.x, 0);
+    }
+
+    // Resets camera X rotation
+    public void ResetRotX()
+    {
+        rotationX = 0f;
     }
 }

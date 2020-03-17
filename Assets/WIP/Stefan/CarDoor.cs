@@ -5,16 +5,7 @@ using UnityEngine;
 public class CarDoor : MonoBehaviour
 {
     public CarSeat seat;
-    public GameObject player;
-
-    private void OnEnable()
-    {
-        EventHandler.UserInteraction += EnterCar;
-    }
-    private void OnDisable()
-    {
-        EventHandler.UserInteraction -= EnterCar;
-    }
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +23,7 @@ public class CarDoor : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            player = col.gameObject;
+            player = col.GetComponent<Player>();
         }
     }
 
@@ -44,12 +35,17 @@ public class CarDoor : MonoBehaviour
         }
     }
 
-    void EnterCar()
+    /// <summary>
+    /// Returns whether <typeparamref name="Player"/> is at this door.
+    /// </summary>
+    /// <returns>Player presence.</returns>
+    public bool PlayerAtDoor()
     {
         if (player != null)
         {
-            //TODO: Move player
-            Debug.Log("enter car");
+            Debug.Log("Player at car door");
+            return true;
         }
+        return false;
     }
 }
