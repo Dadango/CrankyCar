@@ -9,7 +9,7 @@ public class FirstPersonLook : MonoBehaviour
     public float yAxisRotRange = 90f;
 
     public Camera playerCam;
-    private float rotationY = 0f;
+    private float rotationY = 1f;
 
     // public Vector2 mouseSmoothing = new Vector2(2, 2); //TODO: Try to apply smoothing?
     public float mouseYSensitivity = 1f;
