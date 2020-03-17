@@ -14,12 +14,21 @@ public class EventHandler : MonoBehaviour
     }
 
     public event Action OnEngineStart;
-    public void EngineStart() {
+    public void EngineStart()
+    {
         OnEngineStart?.Invoke();
     }
 
     public event Action OnEngineDeath;
-    public void EngineDeath() {
+    public void EngineDeath()
+    {
         OnEngineDeath?.Invoke();
+    }
+
+    public static event Action UserInteraction;
+    public static void Interaction()
+    {
+        Debug.Log("Interaction");
+        UserInteraction?.Invoke();
     }
 }

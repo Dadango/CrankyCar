@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &338457851
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seat: {fileID: 0}
+  player: {fileID: 0}
 --- !u!65 &338457853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -703,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInSeat: 0
-  rightDoor: {fileID: 0}
+  rightDoor: {fileID: 1901844770}
 --- !u!1 &1347892198
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +809,7 @@ GameObject:
   - component: {fileID: 1648352404}
   - component: {fileID: 1648352406}
   - component: {fileID: 1648352407}
+  - component: {fileID: 1648352408}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Player
@@ -878,6 +880,18 @@ MonoBehaviour:
   yAxisRotRange: 90
   playerCam: {fileID: 759339176}
   mouseYSensitivity: 1
+--- !u!114 &1648352408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648352403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1cdec92e8d91b4695430998a34c713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738548361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seat: {fileID: 0}
+  player: {fileID: 0}
 --- !u!65 &1901844771
 BoxCollider:
   m_ObjectHideFlags: 0
