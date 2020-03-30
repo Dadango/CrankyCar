@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarSeat : MonoBehaviour
+public class CarSeat : Enterable
 {
-    public Player playerInSeat;
     public CarDoor rightDoor;
 
     private void OnEnable()
     {
-        EventHandler.UserInteraction += PlayerCarInteraction;
+        EventHandler.UserEnterInteraction += PlayerCarInteraction;
     }
     private void OnDisable()
     {
-        EventHandler.UserInteraction -= PlayerCarInteraction;
+        EventHandler.UserEnterInteraction -= PlayerCarInteraction;
     }
 
     // Start is called before the first frame update
@@ -34,7 +33,7 @@ public class CarSeat : MonoBehaviour
     /// </summary>
     public void PlayerCarInteraction()
     {
-        if (playerInSeat != null)
+        if (player != null)
         {
             PlayerExitCar();
         }
@@ -63,7 +62,7 @@ public class CarSeat : MonoBehaviour
 
             rightDoor.player.firstPersonMovement.enabled = false;
 
-            playerInSeat = rightDoor.player;
+            player = rightDoor.player;
         }
     }
 
@@ -74,15 +73,20 @@ public class CarSeat : MonoBehaviour
     {
         Debug.Log("Player exiting car");
 
-        playerInSeat.transform.SetParent(null);
-        playerInSeat.transform.position = rightDoor.transform.position;
-        playerInSeat.transform.rotation = rightDoor.transform.rotation;
-        playerInSeat.firstPersonLook.ResetRotX();
+        player.transform.SetParent(null);
+        player.transform.position = rightDoor.transform.position;
+        player.transform.rotation = rightDoor.transform.rotation;
+        player.firstPersonLook.ResetRotX();
 
         rightDoor.player.firstPersonMovement.enabled = true;
 
         rightDoor.player.GetComponent<CharacterController>().enabled = true;
 
-        playerInSeat = null;
+        player = null;
+    }
+
+    public override void Enter(Interactor interactor)
+    {
+        throw new System.NotImplementedException();
     }
 }

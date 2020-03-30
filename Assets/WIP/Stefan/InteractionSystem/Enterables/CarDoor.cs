@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarDoor : MonoBehaviour
+public class CarDoor : Enterable
 {
     public CarSeat seat;
-    public Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -47,5 +46,10 @@ public class CarDoor : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public override void Enter(Interactor interactor)
+    {
+        throw new System.NotImplementedException();
     }
 }

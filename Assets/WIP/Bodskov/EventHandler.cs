@@ -25,10 +25,10 @@ public class EventHandler : MonoBehaviour
         OnEngineDeath?.Invoke();
     }
 
-    public static event Action UserInteraction;
+    public static event Action UserEnterInteraction;
     public static void Interaction()
     {
-        Debug.Log("Interaction");
-        UserInteraction?.Invoke();
+        Debug.Log("User Enter");
+        UserEnterInteraction?.Invoke();
     }
 }
