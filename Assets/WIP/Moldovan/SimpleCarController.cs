@@ -38,7 +38,8 @@ public class SimpleCarController : MonoBehaviour
     {
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-
+        print(motor);
+        GetComponent<Rigidbody>().AddForce(transform.forward * motor);
         foreach (AxleInfo axleInfo in axleInfos)
         {
             if (axleInfo.steering)
