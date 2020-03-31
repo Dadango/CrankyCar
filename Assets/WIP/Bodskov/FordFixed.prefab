@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1677194829781058974}
   - component: {fileID: 1677194829781058972}
   - component: {fileID: 1677194829781058917}
+  - component: {fileID: 2500706707341450806}
   m_Layer: 0
   m_Name: FordFixed
   m_TagString: Untagged
@@ -127,6 +128,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectCenterOfMass: {x: 0, y: -2, z: 0}
   Awake: 0
+--- !u!114 &2500706707341450806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677194829781058973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d44f30f6f8b8cd4bb4fa056f895af98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  smooth: 5
 --- !u!1 &1677194829781058975
 GameObject:
   m_ObjectHideFlags: 0
