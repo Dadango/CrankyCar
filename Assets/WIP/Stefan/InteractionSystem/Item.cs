@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class Item : Interactable, IUsable
 {
 
-    public Rigidbody rigidbody { get; private set; }
+    public new Rigidbody rigidbody { get; private set; }
 
     // Start is called before the first frame update
     protected virtual void Start()
