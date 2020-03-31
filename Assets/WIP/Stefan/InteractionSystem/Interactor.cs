@@ -99,9 +99,33 @@ public class Interactor : MonoBehaviour
             hitString += hit.transform.name + " ";
         }
         Debug.Log(hitString);
+        if (hits.Length == 0)
+        {
+            //Do nothing
+        }
+        else if (hits.Length == 1)
+        {
+            PickUp(hits[0].transform.GetComponent<Item>());
+        }
+        else
+        {
+            //Find closest Item
+            float[] distances = new float[hits.Length];
+            int indexSmallestDistance = 0;
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = Vector3.Distance(cam.transform.position, hits[i].transform.position);
+                if (distances[i] < distances[indexSmallestDistance])
+                {
+                    indexSmallestDistance = i;
+                }
+            }
+            PickUp(hits[indexSmallestDistance].transform.GetComponent<Item>());
+
+        }
 
         //HACK: Call interaction properly
-        PickUp(hits[0].transform.GetComponent<Item>());
+
     }
 
     private void PickUp(Item item)
