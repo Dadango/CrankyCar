@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Interactable Item superclass.
 /// </summary>
-public abstract class Item : Interactable
+public abstract class Item : Interactable, IUsable
 {
 
     public Rigidbody rigidbody { get; private set; }
@@ -25,8 +25,6 @@ public abstract class Item : Interactable
     /// <summary>
     /// Activates item function.
     /// </summary>
-    public abstract void UseItem();
-
-    //TODO: Discuss potential change in crank minigame implementation; "if (_interactingWith is Crank && hit is CrankAxel)...
-
+    /// <param name="interactor">The interactor.</param>
+    public abstract void Use(Interactor interactor);
 }

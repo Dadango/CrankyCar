@@ -13,6 +13,7 @@ public class Interactor : MonoBehaviour
     public Transform handLocation;
     [SerializeField]
     private Interactable _interactingWith;
+
     /// <summary>
     /// Property access to _interacting. Parents and places <typeparamref name="Item"/> on assignment
     /// </summary>
@@ -50,6 +51,9 @@ public class Interactor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns if <typeparamref name="Interactor"/> is currently interacting with an <typeparamref name="Interactable"/>.
+    /// </summary>
     public bool IsInteracting
     {
         get
@@ -83,33 +87,37 @@ public class Interactor : MonoBehaviour
         InteractingWith = null;
     }
 
+
     /// <summary>
-    /// Spherecast in front of the <typeparamref name="Player"/> to find interactable elements. 
+    /// Spherecast in front of the <typeparamref name="Player"/> to find an interactable element. 
     /// </summary>
-    public void CheckForInteractables()
+    /// <returns><typeparamref name="Interactable"/> object.</returns>
+    public Interactable CheckForInteractables()
     {
+        Interactable result = null;
+
         Vector3 origin = cam.transform.position;
         Vector3 direction = cam.transform.forward;
         int layerMask = 1 << 8;
         RaycastHit[] hits = Physics.SphereCastAll(origin, sphereCastRadius, direction, interactRange, layerMask);
 
-        string hitString = "";
+        string hitString = "Found: ";
         foreach (RaycastHit hit in hits)
         {
-            hitString += hit.transform.name + " ";
+            hitString += hit.transform.name + ", ";
         }
-        Debug.Log(hitString);
-        if (hits.Length == 0)
+
+        if (hits.Length == 0) //TODO: Consider optimizing away
         {
             //Do nothing
         }
         else if (hits.Length == 1)
         {
-            PickUp(hits[0].transform.GetComponent<Item>());
+            result = hits[0].transform.GetComponent<Interactable>();
         }
         else
         {
-            //Find closest Item
+            //Find closest Interactable
             float[] distances = new float[hits.Length];
             int indexSmallestDistance = 0;
             for (int i = 0; i < hits.Length; i++)
@@ -120,15 +128,14 @@ public class Interactor : MonoBehaviour
                     indexSmallestDistance = i;
                 }
             }
-            PickUp(hits[indexSmallestDistance].transform.GetComponent<Item>());
+            result = hits[indexSmallestDistance].transform.GetComponent<Interactable>();
 
         }
-
-        //HACK: Call interaction properly
-
+        Debug.Log(result!=null ? (hitString + "using " + result.name) : "Found nothing");
+        return result;
     }
 
-    private void PickUp(Item item)
+    public void PickUp(Item item)
     {
         InteractingWith = item;
         item.rigidbody.isKinematic = true;
@@ -146,8 +153,17 @@ public class Interactor : MonoBehaviour
     {
         if (_interactingWith is Item)
         {
-            (_interactingWith as Item).UseItem();
+            (_interactingWith as Item).Use(this);
         }
+        else
+        {
+            //TODO: look for non-item interactable, and Use() it
+        }
+    }
+
+    public void UseUsable(IUsable usable)
+    {
+        usable.Use(this);
     }
 
     /// <summary>

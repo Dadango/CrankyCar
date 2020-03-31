@@ -19,10 +19,4 @@ public abstract class Interactable : MonoBehaviour
         
     }
 
-    ///// <summary>
-    ///// Function to perform interaction with object.
-    ///// </summary>
-    ///// <param name="interactor">The interactor.</param>
-    //public abstract void Interact(Interactor interactor);
-
 }
