@@ -15,7 +15,7 @@ namespace BrokenVector.TreeRandomizer
                 return tree;
 
             GameObject go = tree.gameObject;
-            GameObject asset = PrefabUtility.GetPrefabParent(go) as GameObject;
+            GameObject asset = PrefabUtility.GetCorrespondingObjectFromSource(go) as GameObject;
             if (asset == null)
                 return null;
 
