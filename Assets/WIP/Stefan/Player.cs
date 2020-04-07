@@ -24,11 +24,11 @@ public class Player : MonoBehaviour
 
     void Interact()
     {
-        if (Input.GetButtonDown("Interact")) //TODO: Rename to enter
+        if (Input.GetButtonDown("Enter"))
         {
             EventHandler.Interaction();
         }
-        else if (Input.GetMouseButtonDown(1)) //TODO: Use "fire"?
+        else if (Input.GetButtonDown("Interact"))
         {
             if (interactor.IsInteracting)
             {
@@ -36,12 +36,32 @@ public class Player : MonoBehaviour
             }
             else
             {
-                interactor.CheckForInteractables();
+                Interactable interactable = interactor.CheckForInteractables();
+                //TODO: CheckForInteractables will return stuff. Handle logic here
+                if (interactable is Item)
+                {
+                    interactor.PickUp((Item)interactable);
+                }
+                else
+                {
+                    // When in car and such???
+                }
             }
         }
-        else if (Input.GetMouseButtonDown(0)) //TODO: Use "fire"?
+        else if (Input.GetButtonDown("Use"))
         {
-            interactor.UseItem();
+            if (interactor.IsInteracting)
+            {
+                interactor.UseItem();
+            }
+            else
+            {
+                Interactable interactable = interactor.CheckForInteractables();
+                if (!(interactable is Item) && interactable is IUsable) 
+                {
+                    (interactable as IUsable).Use(interactor);
+                }
+            }
         }
     }
 }
