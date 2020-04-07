@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class HandCrank : Item
 {
+    CrankAxis Axis = null;
+    public bool IsAttached
+    {
+        get
+        {
+            return Axis != null;
+        }
+    }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -28,10 +36,8 @@ public class HandCrank : Item
         {
             CrankAxis axis = interactable as CrankAxis;
 
-            //Activate the Axel
+            //Activate the Axel, placing the crank
             axis.Use(interactor);
-
-            //Place the Hand Crank there
 
             //Make the Crank Axel the active Interactable
 
