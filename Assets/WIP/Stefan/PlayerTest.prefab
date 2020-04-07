@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6353498413771219150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -0.325, z: 0.574}
+  m_LocalPosition: {x: 0.4, y: -0.325, z: 0.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6353498414225914359}
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336eb4a59f63aef44ae7ac1c37272637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 2
+  interactRange: 4
   sphereCastRadius: 0.05
   handLocation: {fileID: 6353498413771219151}
   _interactingWith: {fileID: 0}
