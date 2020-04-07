@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarSeat : Enterable
 {
     public CarDoor rightDoor;
+    public GameObject car;
 
     private void OnEnable()
     {
@@ -54,7 +55,6 @@ public class CarSeat : Enterable
             Debug.Log("Player entering car");
 
             rightDoor.player.GetComponent<CharacterController>().enabled = false;
-
             rightDoor.player.transform.SetParent(transform);
             rightDoor.player.transform.position = transform.position;
             rightDoor.player.transform.rotation = transform.rotation;
@@ -63,6 +63,8 @@ public class CarSeat : Enterable
             rightDoor.player.firstPersonMovement.enabled = false;
 
             player = rightDoor.player;
+            car.GetComponent<SimpleCarController>().enabled = true;
+
         }
     }
 
@@ -72,6 +74,7 @@ public class CarSeat : Enterable
     private void PlayerExitCar()
     {
         Debug.Log("Player exiting car");
+        car.GetComponent<SimpleCarController>().enabled = false;
 
         player.transform.SetParent(null);
         player.transform.position = rightDoor.transform.position;
@@ -81,6 +84,7 @@ public class CarSeat : Enterable
         rightDoor.player.firstPersonMovement.enabled = true;
 
         rightDoor.player.GetComponent<CharacterController>().enabled = true;
+
 
         player = null;
     }

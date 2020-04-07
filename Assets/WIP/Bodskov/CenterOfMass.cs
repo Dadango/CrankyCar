@@ -7,13 +7,17 @@ public class CenterOfMass : MonoBehaviour
 {
 
     public Vector3 ObjectCenterOfMass;
-    public bool Awake;
     protected Rigidbody r;
 
     void start()
     {
         r.centerOfMass = ObjectCenterOfMass;
         r.WakeUp();
-        Awake = !r.IsSleeping();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position + transform.rotation * ObjectCenterOfMass, 1f);
     }
 }
