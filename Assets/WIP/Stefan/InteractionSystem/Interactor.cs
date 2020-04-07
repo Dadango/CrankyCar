@@ -139,6 +139,7 @@ public class Interactor : MonoBehaviour
     {
         InteractingWith = item;
         item.rigidbody.isKinematic = true;
+        item.PickUpEvent(this);
     }
 
     private void Drop(Item item)
@@ -149,22 +150,14 @@ public class Interactor : MonoBehaviour
     /// <summary>
     /// If _interactingWith is of type <typeparamref name="Item"/>, activate its function.
     /// </summary>
-    public void UseItem()
+    public void UseIUsablePrimary()
     {
-        if (_interactingWith is Item)
+        if (_interactingWith is IUsable)
         {
-            (_interactingWith as Item).Use(this);
-        }
-        else
-        {
-            //TODO: look for non-item interactable, and Use() it
+            (_interactingWith as IUsable).UsePrimary(this);
         }
     }
 
-    public void UseUsable(IUsable usable)
-    {
-        usable.Use(this);
-    }
 
     /// <summary>
     /// Finds a location to drop the item.

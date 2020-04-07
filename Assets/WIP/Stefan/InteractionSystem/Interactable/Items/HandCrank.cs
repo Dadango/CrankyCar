@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class HandCrank : Item
 {
-    CrankAxis Axis = null;
+    public Transform crankHandleLocation;
+
+    private CrankAxis _axis = null;
+
+    /// <summary>
+    /// Sets _axis.
+    /// </summary>
+    /// <param name="axis"></param>
+    public void SetAxis(CrankAxis axis)
+    {
+        _axis = axis;
+    }
+
+    /// <summary>
+    /// Returns whether this <typeparamref name="HandCrank"/> is attached to an axis.
+    /// </summary>
     public bool IsAttached
     {
         get
         {
-            return Axis != null;
+            return _axis != null;
         }
     }
+
+
 
     // Start is called before the first frame update
     protected override void Start()
@@ -25,30 +42,51 @@ public class HandCrank : Item
 
     }
 
-    public override void Use(Interactor interactor)
+    public override void UsePrimary(Interactor interactor)
     {
         Debug.Log("Hand Crank used");
-        //Look for the Crank Axel
+        //Look for the Crank Axis
         Interactable interactable = interactor.CheckForInteractables();
 
-        //If the Crank Axel is there
+        //If a Crank Axis is there
         if (interactable is CrankAxis)
         {
             CrankAxis axis = interactable as CrankAxis;
 
-            //Activate the Axel, placing the crank
-            axis.Use(interactor);
+            //Activate the Axis, placing the crank
+            axis.UsePrimary(interactor);
 
-            //Make the Crank Axel the active Interactable
+            //Make the Crank Axis the active Interactable
 
             //Crank minigame!
         }
 
 
-        //On the Axel, detach Hand Crank on right click.
+        //On the Axis, detach Hand Crank on right click.
     }
 
-    //TODO: Discuss potential change in crank minigame implementation; "if (_interactingWith is Crank && hit is CrankAxel)...
+    public override void PickUpEvent(Interactor interactor)
+    {
+        if(IsAttached)
+        {
+            _axis.DetachHandCrank();
+            _axis = null;
+        }
+    }
+
+    public override void UseSecondary(Interactor interactor)
+    {
+        if(IsAttached)
+        {
+            _axis.UsePrimary(interactor);
+        }
+        else
+        {
+            Debug.Log("Handcrank not held or attached to axis.");
+        }
+    }
+
+    //TODO: Discuss potential change in crank minigame implementation; "if (_interactingWith is Crank && hit is CrankAxis)...
 
 
 }

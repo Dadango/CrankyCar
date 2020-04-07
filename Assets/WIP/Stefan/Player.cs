@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
             else
             {
                 Interactable interactable = interactor.CheckForInteractables();
-                //TODO: CheckForInteractables will return stuff. Handle logic here
-                if (interactable is Item)
+
+                if (interactable is Item) //If interactable is an Item
                 {
                     interactor.PickUp((Item)interactable);
                 }
@@ -52,16 +52,33 @@ public class Player : MonoBehaviour
         {
             if (interactor.IsInteracting)
             {
-                interactor.UseItem();
+                interactor.UseIUsablePrimary();
             }
             else
             {
                 Interactable interactable = interactor.CheckForInteractables();
-                if (!(interactable is Item) && interactable is IUsable) 
+                if (interactable is IUsable)
                 {
-                    (interactable as IUsable).Use(interactor);
+                    if (!(interactable is Item))
+                    {
+                        (interactable as IUsable).UsePrimary(interactor);
+                    }
+                    else
+                    {
+                        (interactable as Item).UseSecondary(interactor);
+                    }
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Sets whether the player can move and look using <typeparamref name="FirstPersonMovement"/> and <typeparamref name="FirstPersonLook"/>.
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void SetPlayerInteractivity(bool enabledBool)
+    {
+        firstPersonMovement.enabled = enabledBool;
+        firstPersonLook.enabled = enabledBool;
     }
 }

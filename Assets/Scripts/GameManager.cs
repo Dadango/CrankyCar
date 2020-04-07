@@ -24,13 +24,18 @@ public class GameManager : MonoBehaviour
         get
         { return _carBrokenDown; }
     }
-    [SerializeField]
+    [SerializeField] 
     private bool _carRunning = false;
     public bool carRunning
     {
         get
         { return _carRunning; }
     }
+
+    [SerializeField]
+    private Player _player;
+    public Player Player
+    { get { return _player; } }
 
     #region test function for restarting and stopping the car
     public bool engineToggle = false;
@@ -41,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (engineToggle)
         {
-            Debug.Log("toggle"); 
+            Debug.Log("toggle");
             engineToggle = false;
 
             if (carRunning)
@@ -75,6 +80,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         SetNextBreakdown(); //TODO: Call at some other time?
         EventHandler.current.OnEngineStart += RestartCar;
     }
