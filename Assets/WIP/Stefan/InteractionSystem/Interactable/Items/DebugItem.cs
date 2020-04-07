@@ -22,8 +22,18 @@ public class DebugItem : Item
 
     }
 
-    public override void Use(Interactor interactor)
+    public override void UsePrimary(Interactor interactor)
     {
-        Debug.Log("Debug Item used");
+        Debug.Log("Debug Item used - Held function.");
+    }
+
+    public override void PickUpEvent(Interactor interactor)
+    {
+        
+    }
+
+    public override void UseSecondary(Interactor interactor)
+    {
+        Debug.Log("Debug Item used - Secondary function.");
     }
 }
