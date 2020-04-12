@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FirstPersonLook))]
+[RequireComponent(typeof(FirstPersonMovement))]
+[RequireComponent(typeof(Interactor))]
 public class Player : MonoBehaviour
 {
     public FirstPersonLook firstPersonLook { get; private set; }
@@ -26,9 +29,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Enter"))
         {
-            EventHandler.Interaction();
+            EventHandler.PlayerEnter();
         }
-        else if (Input.GetButtonDown("Interact"))
+        else if (Input.GetButtonDown("TakeDropInteract"))
         {
             if (interactor.IsInteracting)
             {
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetButtonDown("Use"))
+        else if (Input.GetButtonDown("UseActive"))
         {
             if (interactor.IsInteracting)
             {

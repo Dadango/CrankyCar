@@ -26,7 +26,7 @@ public class EventHandler : MonoBehaviour
     }
 
     public static event Action UserEnterInteraction;
-    public static void Interaction()
+    public static void PlayerEnter()
     {
         Debug.Log("User Enter");
         UserEnterInteraction?.Invoke();

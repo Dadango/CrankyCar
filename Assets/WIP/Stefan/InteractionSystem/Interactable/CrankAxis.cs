@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CrankAxis : Interactable, IUsable
 {
-    //TODO: stuff for storing crank
     private bool _cranking = false;
     private bool IsCranking
     {
@@ -34,7 +33,7 @@ public class CrankAxis : Interactable, IUsable
     Vector3 crankOrientation;
     public float speed;
 
-    int framecounter; 
+    int framecounter;
     public int fram_limit; //Framecount threshold for starting car
 
     // Start is called before the first frame update
@@ -58,21 +57,31 @@ public class CrankAxis : Interactable, IUsable
         }
         else if (interactor.InteractingWith == this) //If player is currently cranking
         {
-            Debug.Log("Stopping cranking");
-            interactor.InteractingWith = null;
-            IsCranking = false;
+            StopCranking(interactor);
         }
         else if (!IsCranking && attachedCrank != null) //If player is not cranking, and crank is attached
         {
-            Debug.Log("Enabling cranking");
-
-            interactor.InteractingWith = this;
-            IsCranking = true;
+            StartCranking(interactor);
         }
         else
         {
             Debug.Log("Hand Crank needed.");
         }
+    }
+
+    private void StartCranking(Interactor interactor)
+    {
+        Debug.Log("Enabling cranking");
+
+        interactor.InteractingWith = this;
+        IsCranking = true;
+    }
+
+    private void StopCranking(Interactor interactor)
+    {
+        Debug.Log("Stopping cranking");
+        interactor.InteractingWith = null;
+        IsCranking = false;
     }
 
     /// <summary>
@@ -134,4 +143,11 @@ public class CrankAxis : Interactable, IUsable
         }
     }
 
+    public void InteractionEndCleanUp(Interactor interactor)
+    {
+        if(IsCranking)
+        {
+            StopCranking(interactor);
+        }
+    }
 }

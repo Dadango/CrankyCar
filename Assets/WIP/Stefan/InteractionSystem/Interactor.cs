@@ -80,10 +80,16 @@ public class Interactor : MonoBehaviour
     }
 
     /// <summary>
-    /// Stops interacting with current <typeparamref name="Interactable"/>. Drops it as well if of type <typeparamref name="Item"/>.
+    /// Stops interacting with current <typeparamref name="Interactable"/>. Drops it if of type <typeparamref name="Item"/>.
     /// </summary>
     public void StopInteraction()
     {
+        //Cleanup step
+        if (InteractingWith is IUsable)
+        {
+            (InteractingWith as IUsable).InteractionEndCleanUp(this);
+        }
+
         InteractingWith = null;
     }
 

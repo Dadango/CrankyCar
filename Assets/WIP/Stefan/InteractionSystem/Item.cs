@@ -39,4 +39,8 @@ public abstract class Item : Interactable, IUsable
     /// </summary>
     /// <param name="interactor">The interactor.</param>
     public abstract void PickUpEvent(Interactor interactor);
+
+    public void InteractionEndCleanUp(Interactor interactor)
+    {
+    }
 }

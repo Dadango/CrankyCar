@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336eb4a59f63aef44ae7ac1c37272637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 4
+  interactRange: 5
   sphereCastRadius: 0.05
   handLocation: {fileID: 6353498413771219151}
   _interactingWith: {fileID: 0}

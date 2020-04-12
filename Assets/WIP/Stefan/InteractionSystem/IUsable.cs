@@ -9,5 +9,11 @@ public interface IUsable
     /// </summary>
     /// <param name="interactor">Interactor performing use-action.</param>
     void UsePrimary(Interactor interactor);
+
+    /// <summary>
+    /// Performs additional cleanup steps when ending interactions.
+    /// </summary>
+    /// <param name="interactor">Interactor ending interaction.</param>
+    void InteractionEndCleanUp(Interactor interactor);
 }
 
