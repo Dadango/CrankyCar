@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrankAxis : Interactable, IUsable
+public class Interactable_CrankAxis : Interactable, IUsable
 {
     private bool _cranking = false;
     private bool IsCranking
@@ -27,7 +27,7 @@ public class CrankAxis : Interactable, IUsable
     }
 
     Transform CrankAttachmentPoint;
-    HandCrank attachedCrank;
+    Item_HandCrank attachedCrank;
 
     Vector3 mouseOrientation;
     Vector3 crankOrientation;
@@ -50,10 +50,10 @@ public class CrankAxis : Interactable, IUsable
 
     public void UsePrimary(Interactor interactor)
     {
-        if (interactor.InteractingWith is HandCrank) //If player is holding HandCrank
+        if (interactor.InteractingWith is Item_HandCrank) //If player is holding HandCrank
         {
             Debug.Log("Attaching Crank");
-            AttachHandCrank(interactor.InteractingWith as HandCrank, interactor);
+            AttachHandCrank(interactor.InteractingWith as Item_HandCrank, interactor);
         }
         else if (interactor.InteractingWith == this) //If player is currently cranking
         {
@@ -89,7 +89,7 @@ public class CrankAxis : Interactable, IUsable
     /// </summary>
     /// <param name="crank">HandCrank to attach.</param>
     /// <param name="interactor">Interactor attaching HandCrank</param>
-    public void AttachHandCrank(HandCrank crank, Interactor interactor)
+    public void AttachHandCrank(Item_HandCrank crank, Interactor interactor)
     {
         attachedCrank = crank;
         crank.SetAxis(this);

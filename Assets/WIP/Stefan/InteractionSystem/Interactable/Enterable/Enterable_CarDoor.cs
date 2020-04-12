@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarDoor : Enterable
+public class Enterable_CarDoor : Enterable
 {
-    public CarSeat seat;
+    public Enterable_CarSeat seat;
 
     // Start is called before the first frame update
     void Start()

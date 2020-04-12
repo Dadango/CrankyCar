@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebugItem : Item
+public class Item_Debug : Item
 {
     //public override void Interact(Interactor interactor)
     //{

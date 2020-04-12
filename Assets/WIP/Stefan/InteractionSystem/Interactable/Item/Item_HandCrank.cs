@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandCrank : Item
+public class Item_HandCrank : Item
 {
     public Transform crankHandleLocation;
 
-    private CrankAxis _axis = null;
+    private Interactable_CrankAxis _axis = null;
 
     /// <summary>
-    /// Sets _axis.
+    /// Sets _axis where <typeparamref name="HandCrank"/> is attached.
     /// </summary>
     /// <param name="axis"></param>
-    public void SetAxis(CrankAxis axis)
+    public void SetAxis(Interactable_CrankAxis axis)
     {
         _axis = axis;
     }
@@ -49,9 +49,9 @@ public class HandCrank : Item
         Interactable interactable = interactor.CheckForInteractables();
 
         //If a Crank Axis is there
-        if (interactable is CrankAxis)
+        if (interactable is Interactable_CrankAxis)
         {
-            CrankAxis axis = interactable as CrankAxis;
+            Interactable_CrankAxis axis = interactable as Interactable_CrankAxis;
 
             //Activate the Axis, placing the crank
             axis.UsePrimary(interactor);
@@ -85,8 +85,5 @@ public class HandCrank : Item
             Debug.Log("Handcrank not held or attached to axis.");
         }
     }
-
-    //TODO: Discuss potential change in crank minigame implementation; "if (_interactingWith is Crank && hit is CrankAxis)...
-
 
 }

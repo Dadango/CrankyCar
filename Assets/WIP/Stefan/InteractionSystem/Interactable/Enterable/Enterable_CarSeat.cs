@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarSeat : Enterable
+public class Enterable_CarSeat : Enterable
 {
-    public CarDoor rightDoor;
+    public Enterable_CarDoor rightDoor;
     public GameObject car;
 
     private void OnEnable()

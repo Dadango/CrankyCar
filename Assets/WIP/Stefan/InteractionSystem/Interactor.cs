@@ -89,8 +89,10 @@ public class Interactor : MonoBehaviour
         {
             (InteractingWith as IUsable).InteractionEndCleanUp(this);
         }
-
-        InteractingWith = null;
+        else
+        {
+            InteractingWith = null;
+        }
     }
 
 

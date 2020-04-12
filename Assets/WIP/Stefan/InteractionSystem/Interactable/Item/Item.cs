@@ -42,5 +42,6 @@ public abstract class Item : Interactable, IUsable
 
     public void InteractionEndCleanUp(Interactor interactor)
     {
+        interactor.InteractingWith = null;
     }
 }
