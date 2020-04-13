@@ -28,8 +28,6 @@ public class Item_HandCrank : Item
         }
     }
 
-
-
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -53,24 +51,8 @@ public class Item_HandCrank : Item
         {
             Interactable_CrankAxis axis = interactable as Interactable_CrankAxis;
 
-            //Activate the Axis, placing the crank
+            //Place the crank
             axis.UsePrimary(interactor);
-
-            //Make the Crank Axis the active Interactable
-
-            //Crank minigame!
-        }
-
-
-        //On the Axis, detach Hand Crank on right click.
-    }
-
-    public override void PickUpEvent(Interactor interactor)
-    {
-        if(IsAttached)
-        {
-            _axis.DetachHandCrank();
-            _axis = null;
         }
     }
 
@@ -86,4 +68,17 @@ public class Item_HandCrank : Item
         }
     }
 
+    public override void InteractionStart(Interactor interactor)
+    {
+        if (IsAttached)
+        {
+            _axis.DetachHandCrank();
+            _axis = null;
+        }
+    }
+
+    public override void InteractionEnd(Interactor interactor)
+    {
+        //No additional steps
+    }
 }

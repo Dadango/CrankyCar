@@ -15,7 +15,7 @@ public class Interactor : MonoBehaviour
     private Interactable _interactingWith;
 
     /// <summary>
-    /// Property access to _interacting. Parents and places <typeparamref name="Item"/> on assignment
+    /// Property access to _interacting. Handles additional events for <typeparamref name="IUasble"/>s, parents and places <typeparamref name="Item"/> on assignment
     /// </summary>
     public Interactable InteractingWith
     {
@@ -27,22 +27,37 @@ public class Interactor : MonoBehaviour
         {
             if (value != null)
             {
-                if (value is Item)
+                if (value is IUsable)
                 {
-                    value.transform.parent = handLocation;
-                    value.transform.position = handLocation.position;
-                    value.transform.rotation = handLocation.rotation;
-                    //TODO: Disable collisions?
+                    if (value is Item)
+                    {
+                        //Parent to and place at hand
+                        value.transform.parent = handLocation;
+                        value.transform.position = handLocation.position;
+                        value.transform.rotation = handLocation.rotation;
+                        //Make kinematic
+                        (value as Item).rigidbody.isKinematic = true;
+
+                    }
+                    //Run additional events
+                    (value as IUsable).InteractionStart(this);
                 }
             }
             else
             {
-                if (_interactingWith is Item)
+                if (_interactingWith is IUsable)
                 {
-                    _interactingWith.transform.parent = null;
-                    Drop((_interactingWith as Item));
-                    // TODO: Where to place the item after unparenting..?
-                    //TODO: Enable collisions?
+                    if (_interactingWith is Item)
+                    {
+                        //Unparent and enable regular physics
+                        _interactingWith.transform.parent = null;
+                        (_interactingWith as Item).rigidbody.isKinematic = false;
+
+                        // TODO: Where to place the item after unparenting..?
+
+                    }
+                    //Run additional events
+                    (_interactingWith as IUsable).InteractionEnd(this);
                 }
             }
 
@@ -78,23 +93,6 @@ public class Interactor : MonoBehaviour
     {
 
     }
-
-    /// <summary>
-    /// Stops interacting with current <typeparamref name="Interactable"/>. Drops it if of type <typeparamref name="Item"/>.
-    /// </summary>
-    public void StopInteraction()
-    {
-        //Cleanup step
-        if (InteractingWith is IUsable)
-        {
-            (InteractingWith as IUsable).InteractionEndCleanUp(this);
-        }
-        else
-        {
-            InteractingWith = null;
-        }
-    }
-
 
     /// <summary>
     /// Spherecast in front of the <typeparamref name="Player"/> to find an interactable element. 
@@ -139,20 +137,8 @@ public class Interactor : MonoBehaviour
             result = hits[indexSmallestDistance].transform.GetComponent<Interactable>();
 
         }
-        Debug.Log(result!=null ? (hitString + "using " + result.name) : "Found nothing");
+        Debug.Log(result != null ? (hitString + "using " + result.name) : "Found nothing");
         return result;
-    }
-
-    public void PickUp(Item item)
-    {
-        InteractingWith = item;
-        item.rigidbody.isKinematic = true;
-        item.PickUpEvent(this);
-    }
-
-    private void Drop(Item item)
-    {
-        item.rigidbody.isKinematic = false;
     }
 
     /// <summary>

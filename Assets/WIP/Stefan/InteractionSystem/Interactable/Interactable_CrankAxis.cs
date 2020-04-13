@@ -69,20 +69,6 @@ public class Interactable_CrankAxis : Interactable, IUsable
         }
     }
 
-    private void StartCranking(Interactor interactor)
-    {
-        Debug.Log("Enabling cranking");
-
-        interactor.InteractingWith = this;
-        IsCranking = true;
-    }
-
-    private void StopCranking(Interactor interactor)
-    {
-        Debug.Log("Stopping cranking");
-        interactor.InteractingWith = null;
-        IsCranking = false;
-    }
 
     /// <summary>
     /// Attaches <typeparamref name="HandCrank"/> to this <typeparamref name="CrankAxis"/>.
@@ -91,12 +77,15 @@ public class Interactable_CrankAxis : Interactable, IUsable
     /// <param name="interactor">Interactor attaching HandCrank</param>
     public void AttachHandCrank(Item_HandCrank crank, Interactor interactor)
     {
+        //Attach crank to axis
         attachedCrank = crank;
         crank.SetAxis(this);
+        //Ensure player no longer holds crank
         interactor.InteractingWith = null;
         crank.transform.parent = CrankAttachmentPoint.transform;
         crank.transform.position = CrankAttachmentPoint.transform.position;
         crank.transform.rotation = CrankAttachmentPoint.rotation;
+        //Make kinematic
         crank.rigidbody.isKinematic = true;
     }
 
@@ -143,11 +132,33 @@ public class Interactable_CrankAxis : Interactable, IUsable
         }
     }
 
-    public void InteractionEndCleanUp(Interactor interactor)
+    private void StartCranking(Interactor interactor) 
     {
+        Debug.Log("Enabling cranking");
+
+        interactor.InteractingWith = this;
+        IsCranking = true;
+    }
+
+    private void StopCranking(Interactor interactor)
+    {
+        Debug.Log("Stopping cranking");
+        IsCranking = false; //IsCranking must be set to false before setting InteractingWith to null, else it causes an infinite loop with InteractionEnd
+        interactor.InteractingWith = null;
+    }
+
+    public void InteractionStart(Interactor interactor)
+    {
+        //No additional steps
+    }
+
+    public void InteractionEnd(Interactor interactor)
+    {
+        //Ensure that cranking is stopped when "dropping" axis
         if(IsCranking)
         {
             StopCranking(interactor);
         }
     }
+
 }

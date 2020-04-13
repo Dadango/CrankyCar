@@ -27,13 +27,18 @@ public class Item_Debug : Item
         Debug.Log("Debug Item used - Held function.");
     }
 
-    public override void PickUpEvent(Interactor interactor)
-    {
-        
-    }
-
     public override void UseSecondary(Interactor interactor)
     {
         Debug.Log("Debug Item used - Secondary function.");
+    }
+
+    public override void InteractionStart(Interactor interactor)
+    {
+        Debug.Log("Debug Item picked up.");
+    }
+
+    public override void InteractionEnd(Interactor interactor)
+    {
+        Debug.Log("Debug Item dropped.");
     }
 }

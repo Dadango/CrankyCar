@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         {
             if (interactor.IsInteracting)
             {
-                interactor.StopInteraction();
+                interactor.InteractingWith = null;
             }
             else
             {
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
                 if (interactable is Item) //If interactable is an Item
                 {
-                    interactor.PickUp((Item)interactable);
+                    interactor.InteractingWith = interactable;
                 }
                 else
                 {

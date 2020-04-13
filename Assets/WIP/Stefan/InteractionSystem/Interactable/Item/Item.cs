@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Interactable Item superclass.
+/// Subclass of <typeparamref name="Interactable"/>. Defines objects that can be picked up. Implements <typeparamref name="IUsable"/>.
 /// </summary>
+[RequireComponent(typeof(Rigidbody))]
 public abstract class Item : Interactable, IUsable
 {
 
@@ -35,13 +36,14 @@ public abstract class Item : Interactable, IUsable
     public abstract void UseSecondary(Interactor interactor);
 
     /// <summary>
-    /// Defines additional events that should happen when <typeparamref name="Item"/> is picked up.
+    /// Defines additional steps that should happen when <typeparamref name="Item"/> is picked up.
     /// </summary>
     /// <param name="interactor">The interactor.</param>
-    public abstract void PickUpEvent(Interactor interactor);
+    public abstract void InteractionStart(Interactor interactor);
 
-    public void InteractionEndCleanUp(Interactor interactor)
-    {
-        interactor.InteractingWith = null;
-    }
+    /// <summary>
+    /// Defines additional events that should happen when <typeparamref name="Item"/> is dropped.
+    /// </summary>
+    /// <param name="interactor">The interactor.</param>
+    public abstract void InteractionEnd(Interactor interactor);
 }
