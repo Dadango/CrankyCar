@@ -2572,7 +2572,7 @@ MonoBehaviour:
   rotationSpeed: 3
   moveSpeed: 3
   severity: 0
-  entityDelay: 5
+  entityDelay: 8
   eventPrefabs:
   - {fileID: 5179710802612358128, guid: 10cb2561c2f40004e8a568aa62e66662, type: 3}
   - {fileID: 636877794760884557, guid: 803b1dc041255f64e8bec935a203f2c4, type: 3}
