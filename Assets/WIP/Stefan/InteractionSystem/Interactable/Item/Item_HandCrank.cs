@@ -7,6 +7,7 @@ public class Item_HandCrank : Item
     public Transform crankHandleLocation;
 
     private Interactable_CrankAxis _axis = null;
+    public BoxCollider boxCollider { get; private set; }
 
     /// <summary>
     /// Sets _axis where <typeparamref name="HandCrank"/> is attached.
@@ -32,6 +33,7 @@ public class Item_HandCrank : Item
     protected override void Start()
     {
         base.Start(); // runs the code from the base
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -58,7 +60,7 @@ public class Item_HandCrank : Item
 
     public override void UseSecondary(Interactor interactor)
     {
-        if(IsAttached)
+        if (IsAttached)
         {
             _axis.UsePrimary(interactor);
         }

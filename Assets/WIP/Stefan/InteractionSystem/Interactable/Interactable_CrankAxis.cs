@@ -85,8 +85,9 @@ public class Interactable_CrankAxis : Interactable, IUsable
         crank.transform.parent = CrankAttachmentPoint.transform;
         crank.transform.position = CrankAttachmentPoint.transform.position;
         crank.transform.rotation = CrankAttachmentPoint.rotation;
-        //Make kinematic
+        //Make kinematic and trigger
         crank.rigidbody.isKinematic = true;
+        crank.boxCollider.isTrigger = true;
     }
 
     /// <summary>
@@ -94,6 +95,8 @@ public class Interactable_CrankAxis : Interactable, IUsable
     /// </summary>
     public void DetachHandCrank()
     {
+        attachedCrank.rigidbody.isKinematic = true;
+        attachedCrank.boxCollider.isTrigger = false;
         attachedCrank = null;
     }
 

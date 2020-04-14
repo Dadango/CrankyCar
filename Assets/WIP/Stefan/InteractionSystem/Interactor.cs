@@ -119,7 +119,8 @@ public class Interactor : MonoBehaviour
         }
         else if (hits.Length == 1)
         {
-            result = hits[0].transform.GetComponent<Interactable>();
+            //result = hits[0].transform.GetComponent<Interactable>();
+            result = hits[0].collider.transform.GetComponent<Interactable>();
         }
         else
         {
@@ -128,13 +129,13 @@ public class Interactor : MonoBehaviour
             int indexSmallestDistance = 0;
             for (int i = 0; i < hits.Length; i++)
             {
-                distances[i] = Vector3.Distance(cam.transform.position, hits[i].transform.position);
+                distances[i] = Vector3.Distance(cam.transform.position, hits[i].collider.transform.position);
                 if (distances[i] < distances[indexSmallestDistance])
                 {
                     indexSmallestDistance = i;
                 }
             }
-            result = hits[indexSmallestDistance].transform.GetComponent<Interactable>();
+            result = hits[indexSmallestDistance].collider.transform.GetComponent<Interactable>();
 
         }
         Debug.Log(result != null ? (hitString + "using " + result.name) : "Found nothing");
