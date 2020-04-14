@@ -130,14 +130,14 @@ public class Interactable_CrankAxis : Interactable, IUsable
                 {
                     framecounter = 0;
                     Debug.Log("The car started!");
-                    EventHandler.current.EngineStart();
+                    GameManager.Instance.RestartCar();
                 }
             }
 
         }
     }
 
-    private void StartCranking(Interactor interactor) 
+    private void StartCranking(Interactor interactor)
     {
         Debug.Log("Enabling cranking");
 
@@ -160,7 +160,7 @@ public class Interactable_CrankAxis : Interactable, IUsable
     public void InteractionEnd(Interactor interactor)
     {
         //Ensure that cranking is stopped when "dropping" axis
-        if(IsCranking)
+        if (IsCranking)
         {
             StopCranking(interactor);
         }

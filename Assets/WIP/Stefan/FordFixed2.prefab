@@ -138,8 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad7b9f6a06486e4ba0726a1eda41928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  fram_limit: 1000
+  testHighlight: 0
+  speed: 300
+  fram_limit: 400
 --- !u!1 &5606357127325180903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a289dd7253ee5842b2b2351b64b4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   rightDoor: {fileID: 5606357127826203365}
   car: {fileID: 5606357128964052622}
@@ -2094,7 +2096,7 @@ GameObject:
   - component: {fileID: 5606357127826203366}
   - component: {fileID: 5606357127826203365}
   m_Layer: 0
-  m_Name: CarEntranceZone_Right
+  m_Name: CarEntranceZone_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2108,7 +2110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5606357127826203387}
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: -2.0194998, z: 0}
+  m_LocalPosition: {x: -1.5, y: -2.0194998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5606357128964052663}
@@ -2147,6 +2149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68f23048a3b512478dcc6e843b293f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   seat: {fileID: 5606357127493982972}
 --- !u!1 &5606357127831317301
@@ -5608,6 +5611,7 @@ GameObject:
   - component: {fileID: 5606357128964052619}
   - component: {fileID: 5606357128964052618}
   - component: {fileID: 5606357128964052657}
+  - component: {fileID: 1530350009}
   m_Layer: 0
   m_Name: FordFixed2
   m_TagString: Untagged
@@ -5622,8 +5626,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5606357128964052622}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 488, y: 13.2, z: 28}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5606357127756351205}
@@ -5711,7 +5715,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5606357128964052622}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7cb0dc80301745668549f015520c7b1, type: 3}
   m_Name: 
@@ -5727,6 +5731,22 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 2500
   maxSteeringAngle: 45
+  engineRunning: 0
+  isBeingDriven: 0
+--- !u!114 &1530350009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606357128964052622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d194bff95d37945b47f1d358069b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  player: {fileID: 5606357128964052622}
 --- !u!1 &5606357128972558761
 GameObject:
   m_ObjectHideFlags: 0

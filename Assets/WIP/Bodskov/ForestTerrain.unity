@@ -1416,13 +1416,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d50441dd9953a41a810432be16cefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBreakdownTime: 3
-  maxBreakdownTime: 5
+  car: {fileID: 1530350001}
+  minBreakdownTime: 10
+  maxBreakdownTime: 50
   _timeToBreakdown: 0
   _carBrokenDown: 0
   _carRunning: 0
-  _player: {fileID: 0}
-  engineToggle: 0
 --- !u!114 &874139109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,20 +2331,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 90332711464334322}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1530350009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530350001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d194bff95d37945b47f1d358069b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audio: {fileID: 405242530}
-  player: {fileID: 1530350001}
 --- !u!1 &1556796255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1530350009, guid: 74a93696d9886924d9b77f2e15722820, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 405242530}
     - target: {fileID: 5606357128964052622, guid: 74a93696d9886924d9b77f2e15722820,
         type: 3}
       propertyPath: m_Name

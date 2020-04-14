@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager Instance { get; private set; }
 
-    [Header("Breakdown Settings")]
+    public GameObject car;
+    [Header("Car Breakdown Settings")]
     [Tooltip("Minimum time until breakdown.")]
     public uint minBreakdownTime = 0;
     [Tooltip("Maximum time until breakdown.")]
@@ -32,30 +33,9 @@ public class GameManager : MonoBehaviour
         { return _carRunning; }
     }
 
-    [SerializeField]
     private Player _player;
     public Player Player
     { get { return _player; } }
-
-    #region test function for restarting and stopping the car
-    public bool engineToggle = false;
-    /// <summary>
-    /// Test function for restarting and stopping the car. Run in update.
-    /// </summary>
-    private void EngineToggle()
-    {
-        if (engineToggle)
-        {
-            Debug.Log("toggle");
-            engineToggle = false;
-
-            if (carRunning)
-            { StopCar(); }
-            else
-            { RestartCar(); }
-        }
-    }
-    #endregion
 
     /// <summary>
     /// Sets up a singleton instance for the <typeparamref name="GameManager"/>. Call during Awake().
@@ -83,13 +63,11 @@ public class GameManager : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         SetNextBreakdown(); //TODO: Call at some other time?
-        EventHandler.current.OnEngineStart += RestartCar;
     }
 
     // Update is called once per frame
     void Update()
     {
-        EngineToggle(); //TODO: Remove or comment out later
         BreakdownTimer();
     }
 
@@ -119,21 +97,14 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Stops the car.
-    /// </summary>
-    public void StopCar()
-    {
-        _carRunning = false;
-    }
-
-    /// <summary>
     /// Causes the car to break down.
     /// </summary>
     private void CarBreakdown()
     {
+        EventHandler.EngineStop();
+
         _carBrokenDown = true;
         _carRunning = false;
-        EventHandler.current.EngineDeath();
     }
 
     /// <summary>
@@ -141,15 +112,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RestartCar()
     {
-        //EventHandler.current.EngineStart();
-        //TODO: make car run again
+        EventHandler.EngineStart();
+
         _carRunning = true;
         _carBrokenDown = false;
         SetNextBreakdown();
-    }
-
-    private void OnDestroy()
-    {
-        EventHandler.current.OnEngineStart -= RestartCar;
     }
 }

@@ -7,8 +7,8 @@ public class EngineController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventHandler.current.OnEngineStart += OnEngineOnline;
-        EventHandler.current.OnEngineDeath += OnEngineOffline;
+        EventHandler.OnEngineStart += OnEngineOnline;
+        EventHandler.OnEngineStop += OnEngineOffline;
     }
 
     private void OnEngineOnline() {
@@ -23,7 +23,7 @@ public class EngineController : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventHandler.current.OnEngineStart -= OnEngineOnline;
-        EventHandler.current.OnEngineDeath -= OnEngineOffline;
+        EventHandler.OnEngineStart -= OnEngineOnline;
+        EventHandler.OnEngineStop -= OnEngineOffline;
     }
 }

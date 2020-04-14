@@ -69,10 +69,7 @@ public class Enterable_CarSeat : Enterable
 
             player = rightDoor.player;
 
-            car.GetComponent<SimpleCarController>().enabled = true;
-
-            
-            
+            car.GetComponent<SimpleCarController>().isBeingDriven = true;
 
         }
     }
@@ -83,25 +80,18 @@ public class Enterable_CarSeat : Enterable
     private void PlayerExitCar()
     {
         Debug.Log("Player exiting car");
-        car.GetComponent<SimpleCarController>().enabled = false;
+        car.GetComponent<SimpleCarController>().isBeingDriven = false;
         car_rigid = car.GetComponent<Rigidbody>();
         car_rigid.constraints = RigidbodyConstraints.FreezePosition;
 
         player.transform.SetParent(null);
         player.transform.position = rightDoor.transform.position;
-        player.transform.rotation = rightDoor.transform.rotation; //Had to change this otherwise the player would have a weird camera angle when exiting the car
-        player.transform.rotation = Quaternion.Euler(0, player.transform.rotation.y, 0);
+        player.transform.rotation = rightDoor.transform.rotation; 
+        player.transform.rotation = Quaternion.Euler(0, player.transform.rotation.y, 0); //for avoiding player having weird angle when exiting the car
         player.firstPersonLook.ResetRotX();
         
-        rightDoor.player.firstPersonMovement.enabled = true;
-
-        
-        rightDoor.player.GetComponent<CharacterController>().enabled = true;
-
-
-        
-        
-
+        player.firstPersonMovement.enabled = true;
+        player.GetComponent<CharacterController>().enabled = true;
 
         player = null;
     }

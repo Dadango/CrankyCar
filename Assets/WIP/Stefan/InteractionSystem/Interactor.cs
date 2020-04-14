@@ -138,7 +138,7 @@ public class Interactor : MonoBehaviour
             result = hits[indexSmallestDistance].collider.transform.GetComponent<Interactable>();
 
         }
-        Debug.Log(result != null ? (hitString + "using " + result.name) : "Found nothing");
+        //Debug.Log(result != null ? (hitString + "using " + result.name) : "Found nothing");
         return result;
     }
 
