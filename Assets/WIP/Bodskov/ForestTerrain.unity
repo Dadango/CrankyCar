@@ -1577,12 +1577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d50441dd9953a41a810432be16cefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 0}
-  minBreakdownTime: 3
-  maxBreakdownTime: 5
+  minBreakdownTime: 20
+  maxBreakdownTime: 50
   _timeToBreakdown: 0
   _carBrokenDown: 0
-  _carRunning: 1
+  _carRunning: 0
 --- !u!114 &874139109
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager Instance { get; private set; }
 
-    public GameObject car;
     [Header("Car Breakdown Settings")]
     [Tooltip("Minimum time until breakdown.")]
     public uint minBreakdownTime = 0;
