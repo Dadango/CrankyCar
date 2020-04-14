@@ -36,6 +36,8 @@ public class Interactable_CrankAxis : Interactable, IUsable
     int framecounter;
     public int fram_limit; //Framecount threshold for starting car
 
+    public AudioSource crankingSound;
+    public AudioSource engineStart;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -128,8 +130,10 @@ public class Interactable_CrankAxis : Interactable, IUsable
                 //if (framecounter%10 == 0 ) { Debug.Log(framecounter); }
                 if (framecounter >= fram_limit)
                 {
+                    crankingSound.Stop();
                     framecounter = 0;
                     Debug.Log("The car started!");
+                    engineStart.Play();
                     GameManager.Instance.RestartCar();
                 }
             }
@@ -140,7 +144,7 @@ public class Interactable_CrankAxis : Interactable, IUsable
     private void StartCranking(Interactor interactor)
     {
         Debug.Log("Enabling cranking");
-
+        crankingSound.Play();
         interactor.InteractingWith = this;
         IsCranking = true;
     }
@@ -150,6 +154,7 @@ public class Interactable_CrankAxis : Interactable, IUsable
         Debug.Log("Stopping cranking");
         IsCranking = false; //IsCranking must be set to false before setting InteractingWith to null, else it causes an infinite loop with InteractionEnd
         interactor.InteractingWith = null;
+        crankingSound.Stop();
     }
 
     public void InteractionStart(Interactor interactor)
