@@ -6,7 +6,7 @@ public class soundTrigger : MonoBehaviour
 
     public AudioSource audio;
     public GameObject player;
-    void Update()
+    void Start()
     {
 
     }
