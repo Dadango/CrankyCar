@@ -6,6 +6,7 @@ public class Enterable_CarSeat : Enterable
 {
     public Enterable_CarDoor rightDoor;
     public GameObject car;
+    Rigidbody car_rigid;
 
     private void OnEnable()
     {
@@ -26,7 +27,7 @@ public class Enterable_CarSeat : Enterable
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     /// <summary>
@@ -37,6 +38,7 @@ public class Enterable_CarSeat : Enterable
         if (player != null)
         {
             PlayerExitCar();
+
         }
         else
         {
@@ -53,6 +55,8 @@ public class Enterable_CarSeat : Enterable
         if (rightDoor.PlayerAtDoor())
         {
             Debug.Log("Player entering car");
+            car_rigid = car.GetComponent<Rigidbody>();
+            car_rigid.constraints = RigidbodyConstraints.None;
 
             rightDoor.player.GetComponent<CharacterController>().enabled = false;
             rightDoor.player.transform.SetParent(transform);
@@ -63,7 +67,11 @@ public class Enterable_CarSeat : Enterable
             rightDoor.player.firstPersonMovement.enabled = false;
 
             player = rightDoor.player;
+
             car.GetComponent<SimpleCarController>().enabled = true;
+
+            
+            
 
         }
     }
@@ -75,15 +83,23 @@ public class Enterable_CarSeat : Enterable
     {
         Debug.Log("Player exiting car");
         car.GetComponent<SimpleCarController>().enabled = false;
+        car_rigid = car.GetComponent<Rigidbody>();
+        car_rigid.constraints = RigidbodyConstraints.FreezePosition;
 
         player.transform.SetParent(null);
         player.transform.position = rightDoor.transform.position;
-        player.transform.rotation = rightDoor.transform.rotation;
+        player.transform.rotation = rightDoor.transform.rotation; //Had to change this otherwise the player would have a weird camera angle when exiting the car
+        player.transform.rotation = Quaternion.Euler(0, player.transform.rotation.y, 0);
         player.firstPersonLook.ResetRotX();
-
+        
         rightDoor.player.firstPersonMovement.enabled = true;
 
+        
         rightDoor.player.GetComponent<CharacterController>().enabled = true;
+
+
+        
+        
 
 
         player = null;
