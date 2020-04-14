@@ -37,8 +37,6 @@ public class GameManager : MonoBehaviour
     public Player Player
     { get { return _player; } }
 
-    public GameObject car;
-
     #region test function for restarting and stopping the car
     public bool engineToggle = false;
     /// <summary>
@@ -126,7 +124,6 @@ public class GameManager : MonoBehaviour
     public void StopCar()
     {
         _carRunning = false;
-        //should pause breakdown timer if this gets relevant
     }
 
     /// <summary>
@@ -136,8 +133,6 @@ public class GameManager : MonoBehaviour
     {
         _carBrokenDown = true;
         _carRunning = false;
-        car.GetComponent<SimpleCarController>().enabled = false;
-        car.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         EventHandler.current.EngineDeath();
     }
 
@@ -150,8 +145,6 @@ public class GameManager : MonoBehaviour
         //TODO: make car run again
         _carRunning = true;
         _carBrokenDown = false;
-        car.GetComponent<SimpleCarController>().enabled = true;
-        car.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         SetNextBreakdown();
     }
 
