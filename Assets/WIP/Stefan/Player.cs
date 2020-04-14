@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public FirstPersonMovement firstPersonMovement { get; private set; }
     public Interactor interactor { get; private set; }
 
+    private Interactable highlighted;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Highlighting();
         Interact();
     }
 
@@ -49,6 +52,13 @@ public class Player : MonoBehaviour
                 {
                     // When in car and such???
                 }
+            }
+
+            // make sure that if the picked up object was higlighted before, that it is turned off
+            if (highlighted == interactor.InteractingWith)
+            {
+                highlighted?.RemoveHighlight();
+                highlighted = null;
             }
         }
         else if (Input.GetButtonDown("UseActive"))
@@ -83,5 +93,25 @@ public class Player : MonoBehaviour
     {
         firstPersonMovement.enabled = enabledBool;
         firstPersonLook.enabled = enabledBool;
+    }
+
+    /// <summary>
+    /// Checks if there is an <typeparamref name="Interactable"/> that should be higlighted in fron of the player.
+    /// </summary>
+    private void Highlighting()
+    {
+        Interactable newInteractable = interactor.CheckForInteractables();
+
+        if (newInteractable == null)
+        {
+            highlighted?.RemoveHighlight();
+            highlighted = null;
+        }
+        else if (newInteractable != highlighted)
+        {
+            highlighted?.RemoveHighlight();
+            newInteractable.AddHighlight();
+            highlighted = newInteractable;
+        }
     }
 }

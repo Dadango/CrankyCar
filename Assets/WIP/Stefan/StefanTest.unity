@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68f23048a3b512478dcc6e843b293f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   seat: {fileID: 0}
 --- !u!65 &338457853
@@ -327,7 +328,7 @@ PrefabInstance:
     - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
         type: 3}
@@ -542,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad7b9f6a06486e4ba0726a1eda41928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   speed: 100
   fram_limit: 1000
 --- !u!136 &696403518
@@ -671,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a289dd7253ee5842b2b2351b64b4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   rightDoor: {fileID: 1901844770}
   car: {fileID: 0}
@@ -934,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68f23048a3b512478dcc6e843b293f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   seat: {fileID: 0}
 --- !u!65 &1901844771
@@ -1176,6 +1180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254930455621825582, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4254930455621825583, guid: 6724a33bed079974482b308232da542b,
         type: 3}

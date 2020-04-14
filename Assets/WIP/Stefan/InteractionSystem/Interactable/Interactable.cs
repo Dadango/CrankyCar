@@ -48,7 +48,7 @@ public abstract class Interactable : MonoBehaviour
         renderers = foundRenderers.ToArray();
     }
 
-    void AddHighlight()
+    public void AddHighlight()
     {
         if (!highlighted)
         {
@@ -66,7 +66,7 @@ public abstract class Interactable : MonoBehaviour
         }
     }
 
-    void RemoveHighlight()
+    public void RemoveHighlight()
     {
         if (highlighted)
         {
