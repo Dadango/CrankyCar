@@ -37,14 +37,16 @@ public class Interactable_CrankAxis : Interactable, IUsable
     public int fram_limit; //Framecount threshold for starting car
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start(); // runs the code from the base
         CrankAttachmentPoint = transform.Find("CrankAttachmentPoint");
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update(); // runs the code from the base
         Cranking();
     }
 

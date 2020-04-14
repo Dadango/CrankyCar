@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce0c1bc93b578341b2658413e839dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelRoot: {fileID: 4254930456306278319}
+  test: 0
   flashLight: {fileID: 4254930456660728034}
   facingHitThreshold: 0.5
   distanceHitThreshold: 50

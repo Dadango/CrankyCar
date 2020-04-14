@@ -8,19 +8,19 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Item : Interactable, IUsable
 {
-
     public new Rigidbody rigidbody { get; private set; }
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start(); // runs the code from the base
         rigidbody = GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update(); // runs the code from the base
     }
 
     /// <summary>

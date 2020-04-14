@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49949acabe733b449cd57c01dd5f3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelRoot: {fileID: 6172573178051807351}
+  test: 0
   crankHandleLocation: {fileID: 2776627001872856594}
 --- !u!1 &2776627001872856595
 GameObject:
@@ -185,6 +187,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4a2f796bde295d42b427f83f43292ba, type: 3}
+--- !u!1 &6172573178051807351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b4a2f796bde295d42b427f83f43292ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 2776627003442237822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7201883912605743716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b4a2f796bde295d42b427f83f43292ba,

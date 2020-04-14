@@ -324,6 +324,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d72bfeeb3c6996044872f37d71e57982, type: 2}
     - target: {fileID: 7373578161072509611, guid: 29b74c54b08c9304eae9e8a119cea95d,
         type: 3}
       propertyPath: m_Name
@@ -1152,10 +1167,25 @@ PrefabInstance:
       propertyPath: enemyTransform
       value: 
       objectReference: {fileID: 274112292}
+    - target: {fileID: 4254930455621825582, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254930455621825582, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4254930455621825583, guid: 6724a33bed079974482b308232da542b,
         type: 3}
       propertyPath: m_Name
       value: HandCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254930456306278318, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.201
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6724a33bed079974482b308232da542b, type: 3}
@@ -1166,6 +1196,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7373578161072509611, guid: 29b74c54b08c9304eae9e8a119cea95d,
         type: 3}
       propertyPath: m_Name
