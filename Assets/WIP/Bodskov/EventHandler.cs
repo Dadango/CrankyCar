@@ -13,16 +13,16 @@ public class EventHandler : MonoBehaviour
         current = this;
     }
 
-    public event Action OnEngineStart;
-    public void EngineStart()
+    public static event Action OnEngineStart;
+    public static void EngineStart()
     {
         OnEngineStart?.Invoke();
     }
 
-    public event Action OnEngineDeath;
-    public void EngineDeath()
+    public static event Action OnEngineStop;
+    public static void EngineStop()
     {
-        OnEngineDeath?.Invoke();
+        OnEngineStop?.Invoke();
     }
 
     public static event Action UserEnterInteraction;

@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68f23048a3b512478dcc6e843b293f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   seat: {fileID: 0}
 --- !u!65 &338457853
@@ -324,6 +325,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d72bfeeb3c6996044872f37d71e57982, type: 2}
     - target: {fileID: 7373578161072509611, guid: 29b74c54b08c9304eae9e8a119cea95d,
         type: 3}
       propertyPath: m_Name
@@ -527,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad7b9f6a06486e4ba0726a1eda41928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   speed: 100
   fram_limit: 1000
 --- !u!136 &696403518
@@ -656,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a289dd7253ee5842b2b2351b64b4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   rightDoor: {fileID: 1901844770}
   car: {fileID: 0}
@@ -919,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b68f23048a3b512478dcc6e843b293f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testHighlight: 0
   player: {fileID: 0}
   seat: {fileID: 0}
 --- !u!65 &1901844771
@@ -1152,10 +1171,30 @@ PrefabInstance:
       propertyPath: enemyTransform
       value: 
       objectReference: {fileID: 274112292}
+    - target: {fileID: 4254930455621825582, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254930455621825582, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254930455621825582, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4254930455621825583, guid: 6724a33bed079974482b308232da542b,
         type: 3}
       propertyPath: m_Name
       value: HandCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254930456306278318, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.201
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6724a33bed079974482b308232da542b, type: 3}
@@ -1166,6 +1205,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373578160647983295, guid: 29b74c54b08c9304eae9e8a119cea95d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7373578161072509611, guid: 29b74c54b08c9304eae9e8a119cea95d,
         type: 3}
       propertyPath: m_Name

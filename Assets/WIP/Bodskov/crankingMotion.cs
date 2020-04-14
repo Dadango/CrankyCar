@@ -36,7 +36,7 @@ public class crankingMotion : MonoBehaviour
                 if (framecounter < 0) { framecounter = 0; }
                 transform.rotation *= Quaternion.AngleAxis((speed * Time.deltaTime)*sign, Vector3.forward);
                 //if (framecounter%10 == 0 ) { Debug.Log(framecounter); }
-                if (framecounter >= fram_limit) { framecounter = 0; Debug.Log("The car started!"); EventHandler.current.EngineStart(); }
+                if (framecounter >= fram_limit) { framecounter = 0; Debug.Log("The car started!"); EventHandler.EngineStart(); }
             }
         }
     }
