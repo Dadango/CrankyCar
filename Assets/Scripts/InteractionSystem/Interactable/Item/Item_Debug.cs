@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Item_Debug : Item
 {
-    //public override void Interact(Interactor interactor)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
 
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     // Start is called before the first frame update
     protected override void Start()

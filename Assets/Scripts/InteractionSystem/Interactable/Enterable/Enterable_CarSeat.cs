@@ -17,6 +17,12 @@ public class Enterable_CarSeat : Enterable
         EventHandler.UserEnterInteraction -= PlayerCarInteraction;
     }
 
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {

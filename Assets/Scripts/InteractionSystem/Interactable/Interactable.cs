@@ -11,10 +11,15 @@ public abstract class Interactable : MonoBehaviour
     private bool highlighted = false;
     public bool testHighlight = false;
 
+    // Awake is called when the script instance is being loaded
+    protected virtual void Awake()
+    {
+        GetMeshRenderers();
+    }
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        GetMeshRenderers();
     }
 
     // Update is called once per frame
@@ -79,6 +84,20 @@ public abstract class Interactable : MonoBehaviour
             }
 
             highlighted = false;
+        }
+    }
+
+    public void SetLayer(int layer)
+    {
+        SetLayer(this.transform, layer);
+    }
+
+    public static void SetLayer(Transform transform, int layer)
+    {
+        transform.gameObject.layer = layer;
+        foreach (Transform child in transform)
+        {
+            Interactable.SetLayer(child, layer);
         }
     }
 }

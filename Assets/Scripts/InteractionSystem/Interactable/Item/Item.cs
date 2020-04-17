@@ -9,12 +9,20 @@ using UnityEngine;
 public abstract class Item : Interactable, IUsable
 {
     public new Rigidbody rigidbody { get; private set; }
+    public BoxCollider boxCollider { get; protected set; }
+
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
+    {
+        base.Awake();
+        rigidbody = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+    }
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start(); // runs the code from the base
-        rigidbody = GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame

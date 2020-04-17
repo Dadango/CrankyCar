@@ -7,10 +7,16 @@ public class Enterable_CarDoor : Enterable
     public Enterable_CarSeat seat;
 
     // Start is called before the first frame update
+
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Start()
     {
         base.Start(); // runs the code from the base
-
     }
 
     // Update is called once per frame

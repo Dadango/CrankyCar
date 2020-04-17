@@ -24,14 +24,21 @@ public class Item_Camera : Item
     private Vector3 enemyLocation
     { get { return enemyTransform.position; } }
 
-    // Start is called before the first frame update
-    protected override void Start()
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
     {
-        base.Start(); // runs the code from the base
+        base.Awake();
         _charges = startingCharges;
         _maxIntensity = flashLight.intensity;
         _cooldownTimer = cooldown;
         Flash();
+    }
+
+    // Start is called before the first frame update
+    protected override void Start()
+    {
+        base.Start(); // runs the code from the base
+
     }
 
     // Update is called once per frame
@@ -69,7 +76,7 @@ public class Item_Camera : Item
     /// </summary>
     private void Flash()
     {
-        flashLight.intensity = flashFallof.Evaluate(_cooldownTimer / flashDuration)*_maxIntensity;
+        flashLight.intensity = flashFallof.Evaluate(_cooldownTimer / flashDuration) * _maxIntensity;
     }
 
     private void ShootCamera()
@@ -95,7 +102,7 @@ public class Item_Camera : Item
 
                 Debug.Log($"Facing: {facingAmount}, Distance: {distanceToEnemy}, FacingTreshold: {facingAmount >= facingHitThreshold}, DistanceThreshold: {distanceToEnemy <= distanceHitThreshold}");
 
-                if(facingAmount >= facingHitThreshold && distanceToEnemy <= distanceHitThreshold)
+                if (facingAmount >= facingHitThreshold && distanceToEnemy <= distanceHitThreshold)
                 {
                     //TODO: Do something if player is looking enough towards enemy (+ close enough?).
 

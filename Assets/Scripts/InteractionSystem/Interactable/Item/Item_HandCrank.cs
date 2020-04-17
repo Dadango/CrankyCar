@@ -7,7 +7,6 @@ public class Item_HandCrank : Item
     public Transform crankHandleLocation;
 
     private Interactable_CrankAxis _axis = null;
-    public BoxCollider boxCollider { get; private set; }
 
     /// <summary>
     /// Sets _axis where <typeparamref name="HandCrank"/> is attached.
@@ -29,11 +28,16 @@ public class Item_HandCrank : Item
         }
     }
 
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start(); // runs the code from the base
-        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame

@@ -35,6 +35,8 @@ public class Interactor : MonoBehaviour
                         value.transform.parent = handLocation;
                         value.transform.position = handLocation.position;
                         value.transform.rotation = handLocation.rotation;
+                        //Change layer to default
+                        value.SetLayer(0);
                         //Make kinematic
                         (value as Item).rigidbody.isKinematic = true;
 
@@ -52,6 +54,9 @@ public class Interactor : MonoBehaviour
                         //Unparent and enable regular physics
                         _interactingWith.transform.parent = null;
                         (_interactingWith as Item).rigidbody.isKinematic = false;
+
+                        //Change layer to interactable
+                        _interactingWith.SetLayer(8);
 
                         // TODO: Where to place the item after unparenting..?
 

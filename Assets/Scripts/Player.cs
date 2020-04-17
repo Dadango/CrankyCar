@@ -37,8 +37,16 @@ public class Player : MonoBehaviour
         else if (Input.GetButtonDown("TakeDropInteract"))
         {
             if (interactor.IsInteracting)
-            {
-                interactor.InteractingWith = null;
+            {   // Quick and dirty solution for getting item from backseat incoming
+                Interactable interactable = interactor.CheckForInteractables();
+                if (interactable is Interactable_Backseat)
+                {
+                    (interactable as Interactable_Backseat).UsePrimary(interactor);
+                }
+                else
+                {
+                    interactor.InteractingWith = null;
+                }
             }
             else
             {
@@ -51,6 +59,11 @@ public class Player : MonoBehaviour
                 else
                 {
                     // When in car and such???
+
+                    if (interactable is Interactable_Backseat)
+                    {
+                        (interactable as Interactable_Backseat).UsePrimary(interactor);
+                    }
                 }
             }
 

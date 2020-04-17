@@ -38,6 +38,13 @@ public class Interactable_CrankAxis : Interactable, IUsable
 
     public AudioSource crankingSound;
     public AudioSource engineStart;
+
+    // Awake is called when the script instance is being loaded
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
