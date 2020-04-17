@@ -19,6 +19,10 @@ public class SimpleCarController : MonoBehaviour
     public float maxSteeringAngle;
     public bool engineRunning = false;
     public bool isBeingDriven = false;
+    public AudioSource stopEngineStart;
+    public AudioSource engine_Running;
+    public AudioSource engineStop;
+    
 
     private void OnEnable()
     {
@@ -35,11 +39,17 @@ public class SimpleCarController : MonoBehaviour
     public void StopEngine()
     {
         engineRunning = false;
+        engine_Running.Stop();
+        engineStop.Play();
     }
 
     public void StartEngine()
     {
         engineRunning = true;
+        stopEngineStart.PlayScheduled(AudioSettings.dspTime); //plays the two clips after each other
+        double clipLength = stopEngineStart.clip.samples / stopEngineStart.clip.frequency;
+        engine_Running.PlayScheduled(AudioSettings.dspTime + clipLength);
+
     }
 
     public void ApplyLocalPositionToVisuals(WheelCollider collider)

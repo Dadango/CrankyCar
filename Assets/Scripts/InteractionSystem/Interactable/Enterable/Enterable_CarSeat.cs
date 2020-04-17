@@ -8,8 +8,6 @@ public class Enterable_CarSeat : Enterable
     public GameObject car;
     Rigidbody car_rigid;
 
-    public AudioSource engineStart;
-    public AudioSource idle_engine;
     private void OnEnable()
     {
         EventHandler.UserEnterInteraction += PlayerCarInteraction;
@@ -70,8 +68,6 @@ public class Enterable_CarSeat : Enterable
             rightDoor.player.firstPersonMovement.enabled = false;
 
             player = rightDoor.player;
-            engineStart.Stop();
-            idle_engine.Play();
 
             car.GetComponent<SimpleCarController>().isBeingDriven = true;
 
