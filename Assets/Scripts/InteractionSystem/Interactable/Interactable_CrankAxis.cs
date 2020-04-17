@@ -30,7 +30,7 @@ public class Interactable_CrankAxis : Interactable, IUsable
     Item_HandCrank attachedCrank;
 
     Vector2 mouseOrientation;
-    Vector3 crankOrientation;
+    Vector2 crankOrientation;
     public float speed;
 
     int framecounter;
@@ -112,9 +112,11 @@ public class Interactable_CrankAxis : Interactable, IUsable
 
             mouseOrientation = (Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2));
 
-            crankOrientation = attachedCrank.crankHandleLocation.position - CrankAttachmentPoint.transform.position;
+            Vector3 localCrankOrientation = CrankAttachmentPoint.transform.InverseTransformPoint(attachedCrank.crankHandleLocation.transform.position);
+            crankOrientation.x = -localCrankOrientation.x;
+            crankOrientation.y = -localCrankOrientation.z;
 
-            float angle = Vector3.SignedAngle(mouseOrientation, crankOrientation, transform.up);
+            float angle = Vector2.SignedAngle(mouseOrientation, crankOrientation);
             if (!(angle - 10 <= 0 && angle + 10 >= 0))
             {
                 int sign = -1;

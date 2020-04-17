@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 1710264906}
+  sound: {fileID: 0}
   player: {fileID: 1530350001}
 --- !u!65 &760384385
 BoxCollider:
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 1964355374}
+  sound: {fileID: 0}
   player: {fileID: 1530350001}
 --- !u!65 &792820160
 BoxCollider:
@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 1505563388}
+  sound: {fileID: 0}
   player: {fileID: 1530350001}
 --- !u!65 &1051777366
 BoxCollider:
@@ -2347,7 +2347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 753803204}
+  sound: {fileID: 0}
   player: {fileID: 1530350001}
 --- !u!65 &1399235156
 BoxCollider:
@@ -2455,7 +2455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 533334299}
+  sound: {fileID: 0}
   player: {fileID: 1530350001}
 --- !u!65 &1495209520
 BoxCollider:
@@ -4230,6 +4230,41 @@ PrefabInstance:
       propertyPath: engineStart
       value: 
       objectReference: {fileID: 2122838355}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000017533343
+      objectReference: {fileID: 0}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000006790179
+      objectReference: {fileID: 0}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 90332711822695799, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -179.99998
+      objectReference: {fileID: 0}
     - target: {fileID: 5606357127493982972, guid: 74a93696d9886924d9b77f2e15722820,
         type: 3}
       propertyPath: engineStart
