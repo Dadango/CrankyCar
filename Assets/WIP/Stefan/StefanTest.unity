@@ -156,8 +156,6 @@ MonoBehaviour:
   _timeToBreakdown: 0
   _carBrokenDown: 0
   _carRunning: 0
-  _player: {fileID: 0}
-  engineToggle: 0
 --- !u!4 &126991258
 Transform:
   m_ObjectHideFlags: 0
@@ -523,14 +521,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696403515}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.50000006, w: 0.50000006}
+  m_LocalRotation: {x: -0.00000040765542, y: 0.70710677, z: 0.7071068, w: -0.0000002452587}
   m_LocalPosition: {x: -0, y: 0.43, z: 2.49}
   m_LocalScale: {x: 0.26606, y: 0.26606, z: 0.26606}
   m_Children:
   - {fileID: 1592204788}
   m_Father: {fileID: 368105374}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 179.99998}
 --- !u!114 &696403517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,6 +544,8 @@ MonoBehaviour:
   testHighlight: 0
   speed: 100
   fram_limit: 1000
+  crankingSound: {fileID: 0}
+  engineStart: {fileID: 0}
 --- !u!136 &696403518
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1114,7 +1114,7 @@ PrefabInstance:
     - target: {fileID: 4254930455621825579, guid: 6724a33bed079974482b308232da542b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.52
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 4254930455621825579, guid: 6724a33bed079974482b308232da542b,
         type: 3}

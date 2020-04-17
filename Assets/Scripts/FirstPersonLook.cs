@@ -11,9 +11,7 @@ public class FirstPersonLook : MonoBehaviour
     public Camera playerCam;
     private float rotationX = 1f;
 
-    // public Vector2 mouseSmoothing = new Vector2(2, 2); //TODO: Try to apply smoothing?
     public float mouseYSensitivity = 1f;
-    private Vector2 _smoothMouse;
 
 
     // Start is called before the first frame update

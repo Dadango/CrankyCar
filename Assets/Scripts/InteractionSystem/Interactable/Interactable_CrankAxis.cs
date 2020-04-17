@@ -29,7 +29,7 @@ public class Interactable_CrankAxis : Interactable, IUsable
     Transform CrankAttachmentPoint;
     Item_HandCrank attachedCrank;
 
-    Vector3 mouseOrientation;
+    Vector2 mouseOrientation;
     Vector3 crankOrientation;
     public float speed;
 
@@ -110,10 +110,11 @@ public class Interactable_CrankAxis : Interactable, IUsable
         {
             //Run craking minigame
 
-            mouseOrientation = (Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2, 20)) - transform.position;
-            crankOrientation = attachedCrank.crankHandleLocation.position - transform.position;
+            mouseOrientation = (Input.mousePosition - new Vector3(Screen.width / 2, Screen.height / 2));
 
-            float angle = Vector3.SignedAngle(mouseOrientation, crankOrientation, Vector3.up);
+            crankOrientation = attachedCrank.crankHandleLocation.position - CrankAttachmentPoint.transform.position;
+
+            float angle = Vector3.SignedAngle(mouseOrientation, crankOrientation, transform.up);
             if (!(angle - 10 <= 0 && angle + 10 >= 0))
             {
                 int sign = -1;
@@ -130,10 +131,16 @@ public class Interactable_CrankAxis : Interactable, IUsable
                 //if (framecounter%10 == 0 ) { Debug.Log(framecounter); }
                 if (framecounter >= fram_limit)
                 {
-                    crankingSound.Stop();
+                    if (crankingSound)
+                    {
+                        crankingSound.Stop();
+                    }
                     framecounter = 0;
                     Debug.Log("The car started!");
-                    engineStart.Play();
+                    if (engineStart)
+                    {
+                        engineStart.Play();
+                    }
                     GameManager.Instance.RestartCar();
                 }
             }
@@ -144,7 +151,10 @@ public class Interactable_CrankAxis : Interactable, IUsable
     private void StartCranking(Interactor interactor)
     {
         Debug.Log("Enabling cranking");
-        crankingSound.Play();
+        if (crankingSound)
+        {
+            crankingSound.Play();
+        }
         interactor.InteractingWith = this;
         IsCranking = true;
     }
@@ -154,7 +164,10 @@ public class Interactable_CrankAxis : Interactable, IUsable
         Debug.Log("Stopping cranking");
         IsCranking = false; //IsCranking must be set to false before setting InteractingWith to null, else it causes an infinite loop with InteractionEnd
         interactor.InteractingWith = null;
-        crankingSound.Stop();
+        if (crankingSound)
+        {
+            crankingSound.Stop();
+        }
     }
 
     public void InteractionStart(Interactor interactor)
