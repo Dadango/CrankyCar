@@ -4,7 +4,7 @@ using System.Collections;
 public class soundTrigger : MonoBehaviour
 {
 
-    public AudioSource audio;
+    public AudioSource sound;
     public GameObject player;
     void Start()
     {
@@ -12,7 +12,7 @@ public class soundTrigger : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        audio.Play();
+        sound.Play();
     }
 
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public class SoundTriggerOnce : MonoBehaviour
 {
 
-    public AudioSource audio;
+    public AudioSource sound;
     public GameObject player;
     private bool collision = false;
 
@@ -17,7 +17,7 @@ public class SoundTriggerOnce : MonoBehaviour
     {
         if (!collision)
         {
-            audio.Play();
+            sound.Play();
             collision = true;
         }
     }

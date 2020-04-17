@@ -9,6 +9,6 @@ public class endText : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        textEnd.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        if (other.CompareTag("Player")) { textEnd.gameObject.GetComponent<MeshRenderer>().enabled = true; }
     }
 }
