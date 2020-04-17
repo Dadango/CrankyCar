@@ -40,7 +40,6 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
     }
 
     public List<GameObject> eventPrefabs;
-    //private List<GameObject> runningSounds;
 
 
 
@@ -101,12 +100,7 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
             gameObject.GetComponentInChildren<Light>().enabled = true;
             growl_s();
         }
-        //foreach (GameObject sound in runningSounds) {
 
-        //}
-        //GameObject owl = Instantiate(eventPrefabs[0], new Vector3(player.transform.position.x-10, player.transform.position.y, player.transform.position.z+10), new Quaternion(0, 0, 0, 0));
-        //wait for length of audio clip then
-        //GameObject.Destroy(owl);
     }
 
     void owls()
