@@ -114,7 +114,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   flashDuration: 1
-  startingCharges: 50
+  startingCharges: 5
   cooldown: 2
   enemyTransform: {fileID: 0}
 --- !u!1 &4254930455670787764
