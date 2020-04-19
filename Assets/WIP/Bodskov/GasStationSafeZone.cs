@@ -7,6 +7,6 @@ public class GasStationSafeZone : MonoBehaviour
     public EntityScript entity;
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) { entity.enabled = true;  }
+      /*if (other.CompareTag("Player"))*/ { entity.enabled = true;  }
     }
 }
