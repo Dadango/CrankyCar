@@ -2776,7 +2776,7 @@ MonoBehaviour:
   player: {fileID: 2058293802}
   goal: {fileID: 719610660}
   rotationSpeed: 3
-  moveSpeed: 3
+  moveSpeed: 4
   severity: 0
   entityDelay: 8
   scared: 0
