@@ -20,9 +20,9 @@ public class Item_Camera : Item
     public float cooldown = 2;
     private float _cooldownTimer;
 
-    public Transform enemyTransform; //TODO: Kinda placeholder for now. Integrate with EntityScript!
+    public GameObject enemyTransform; //TODO: Kinda placeholder for now. Integrate with EntityScript!
     private Vector3 enemyLocation
-    { get { return enemyTransform.position; } }
+    { get { return enemyTransform.transform.position; } }
 
     // Awake is called when the script instance is being loaded
     protected override void Awake()
@@ -104,8 +104,7 @@ public class Item_Camera : Item
 
                 if (facingAmount >= facingHitThreshold && distanceToEnemy <= distanceHitThreshold)
                 {
-                    //TODO: Do something if player is looking enough towards enemy (+ close enough?).
-
+                   enemyTransform.GetComponent<EntityScript>().scared = true;
                 }
             }
         }

@@ -19,6 +19,7 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
     public int moveSpeed;
     public int severity;
     public float entityDelay = 5.0f;
+    public bool scared = false;
 
     private void Start()
     {
@@ -29,7 +30,14 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), rotationSpeed * Time.deltaTime);//rotation
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;//movement
+        if (scared)
+        {
+            transform.position += (-1 * transform.forward) * moveSpeed * Time.deltaTime;//movement
+            StartCoroutine("scaredCooldown");
+        }
+        else {
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;//movement
+        }
         severity = (int)(500 - distanceToPlayer); //severity level of nme interactions, based off distance and difficulty
         moveSpeed = severity <= 150 ? 8 : 3;
         if (severity > 490)
@@ -37,6 +45,11 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
             Debug.Log("Game Over");
             Application.Quit();
         }
+    }
+
+    IEnumerator scaredCooldown() {
+        yield return new WaitForSeconds(5);
+        scared = false;
     }
 
     public List<GameObject> eventPrefabs;

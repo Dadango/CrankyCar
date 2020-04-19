@@ -435,6 +435,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4254930455621825581, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 1556796255}
+    - target: {fileID: 4254930455621825581, guid: 6724a33bed079974482b308232da542b,
+        type: 3}
+      propertyPath: startingCharges
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4254930455621825583, guid: 6724a33bed079974482b308232da542b,
         type: 3}
       propertyPath: m_Name
@@ -2769,6 +2779,7 @@ MonoBehaviour:
   moveSpeed: 3
   severity: 0
   entityDelay: 8
+  scared: 0
   eventPrefabs:
   - {fileID: 5179710802612358128, guid: 10cb2561c2f40004e8a568aa62e66662, type: 3}
   - {fileID: 636877794760884557, guid: 803b1dc041255f64e8bec935a203f2c4, type: 3}
