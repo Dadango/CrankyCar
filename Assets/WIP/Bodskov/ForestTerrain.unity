@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  sound: {fileID: 1710264906}
   player: {fileID: 1530350001}
 --- !u!65 &760384385
 BoxCollider:
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  sound: {fileID: 1964355374}
   player: {fileID: 1530350001}
 --- !u!65 &792820160
 BoxCollider:
@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  sound: {fileID: 1505563388}
   player: {fileID: 1530350001}
 --- !u!65 &1051777366
 BoxCollider:
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  sound: {fileID: 753803204}
   player: {fileID: 1530350001}
 --- !u!65 &1399235156
 BoxCollider:
@@ -2534,7 +2534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a279a8c6f26d5d4697d15e5f09db345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
+  sound: {fileID: 533334299}
   player: {fileID: 1530350001}
 --- !u!65 &1495209520
 BoxCollider:
@@ -2776,7 +2776,6 @@ MonoBehaviour:
   player: {fileID: 2058293802}
   goal: {fileID: 719610660}
   rotationSpeed: 3
-  moveSpeed: 4
   severity: 0
   entityDelay: 8
   scared: 0
@@ -3860,9 +3859,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 92da3a6da3596b94388cbc20d431e814, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e7aad1e4e386b51448269d530b3b37b8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4345,6 +4344,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.99998
       objectReference: {fileID: 0}
+    - target: {fileID: 255937953558465529, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 255937953558465531, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5606357127493982972, guid: 74a93696d9886924d9b77f2e15722820,
         type: 3}
       propertyPath: engineStart
@@ -4434,6 +4443,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055184529291557792, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055184529291557794, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1530350009, guid: 74a93696d9886924d9b77f2e15722820, type: 3}
