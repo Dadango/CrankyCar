@@ -20,6 +20,7 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
     public int severity;
     public float entityDelay = 5.0f;
     public bool scared = false;
+    public float scaredTime = 10f;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
     }
 
     IEnumerator scaredCooldown() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(scaredTime);
         scared = false;
     }
 

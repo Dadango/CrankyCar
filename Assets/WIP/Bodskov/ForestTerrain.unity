@@ -2779,6 +2779,7 @@ MonoBehaviour:
   severity: 0
   entityDelay: 8
   scared: 0
+  scaredTime: 10
   eventPrefabs:
   - {fileID: 5179710802612358128, guid: 10cb2561c2f40004e8a568aa62e66662, type: 3}
   - {fileID: 636877794760884557, guid: 803b1dc041255f64e8bec935a203f2c4, type: 3}
@@ -4364,6 +4365,31 @@ PrefabInstance:
       propertyPath: idle_engine
       value: 
       objectReference: {fileID: 405242530}
+    - target: {fileID: 5606357127493982975, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606357127493982975, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606357127493982975, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606357127493982975, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606357127493982975, guid: 74a93696d9886924d9b77f2e15722820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5606357128964052618, guid: 74a93696d9886924d9b77f2e15722820,
         type: 3}
       propertyPath: m_Enabled

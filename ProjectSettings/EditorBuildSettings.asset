@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/WIP/Bodskov/ForestTerrain.unity
+    guid: a44649cce27b1b84480b6aaa69d596b7
   m_configObjects: {}
