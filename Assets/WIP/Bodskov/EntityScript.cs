@@ -16,7 +16,7 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
     public GameObject player;
     public Transform goal;
     public float rotationSpeed;
-    public int moveSpeed;
+    private int moveSpeed;
     public int severity;
     public float entityDelay = 5.0f;
     public bool scared = false;
@@ -39,7 +39,7 @@ public class EntityScript : MonoBehaviour //move me into Eventhandler and gamema
             transform.position += transform.forward * moveSpeed * Time.deltaTime;//movement
         }
         severity = (int)(500 - distanceToPlayer); //severity level of nme interactions, based off distance and difficulty
-        moveSpeed = severity <= 150 ? 8 : 3;
+        moveSpeed = severity <= 150 ? 10 : 5;
         if (severity > 490)
         {
             Debug.Log("Game Over");
